@@ -1,0 +1,42 @@
+{
+  "name": "silesiafront",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "cors": "^2.8.5",
+    "react": "^16.8.6",
+    "react-csv": "^1.1.1",
+    "react-dom": "^16.8.6",
+    "react-json-to-csv": "^1.0.4",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "sweetalert2-react": "^0.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.9.0",
+    "react-test-renderer": "^16.9.0"
+  }
+}

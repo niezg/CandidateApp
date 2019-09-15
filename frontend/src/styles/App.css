@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* * {
+  padding: 0px;
+}
+
+.navbar-nav {
+  background-color: rgb(30, 29, 31);
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-item {
+  flex-grow: 1;
+}
+
+.nav-link {
+  display: block;
+  font-family: arial;
+  padding: 15px 25px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 4px solid gainsboro;
+}
+
+a:hover {
+  color: yellow;
+}
+
+.active {
+  border-bottom-color: red;
+} */

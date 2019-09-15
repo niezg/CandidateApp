@@ -1,0 +1,22 @@
+form {
+  margin: 10px 30px 20px 30px;
+}
+
+label {
+  font-size-adjust: initial;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.form-group {
+  margin: 2px;
+}
+
+.form-check-input {
+  width: 20px;
+  height: 20px;
+  color: rgb(255, 255, 255);
+  margin-left: 10px;
+}
