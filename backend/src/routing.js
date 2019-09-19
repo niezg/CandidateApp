@@ -7,7 +7,11 @@ const {
   updateDecisionCandidate
 } = require("./controllers/candidateController");
 
-const { getCandidateReports } = require("./controllers/reportsController");
+const {
+  getWorkshopsReports,
+  getLectureReports,
+  getRejectedReport
+} = require("./controllers/reportsController");
 
 const {
   getIsLocked,
@@ -55,8 +59,18 @@ function addCandidateRoutes(app) {
     response.status(httpStatus).send({ message });
   });
 
-  app.get("/report", async (request, response) => {
-    const { data, httpStatus } = await getCandidateReports();
+  app.get("/report/workshops", async (request, response) => {
+    const { data, httpStatus } = await getWorkshopsReports();
+    response.status(httpStatus).send(data);
+  });
+
+  app.get("/report/lecture", async (request, response) => {
+    const { data, httpStatus } = await getLectureReports();
+    response.status(httpStatus).send(data);
+  });
+
+  app.get("/report/rejected", async (request, response) => {
+    const { data, httpStatus } = await getRejectedReport();
     response.status(httpStatus).send(data);
   });
 

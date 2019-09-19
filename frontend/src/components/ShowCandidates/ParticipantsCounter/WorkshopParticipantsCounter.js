@@ -5,7 +5,6 @@ const WorkshopParticipantsCounter = props => {
   const { MaxParticipants, candidates, children: message } = props;
 
   const participantsCount = countWorkshopParticipants(candidates);
-  console.log("participantsCount :", participantsCount);
   const counterColour = MaxParticipants <= participantsCount ? "red" : "black";
 
   return (

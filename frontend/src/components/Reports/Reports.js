@@ -4,6 +4,7 @@ import InvalidMessages from "./InvalidMessages/InvalidMessages";
 import LockButton from "./LockButton/LockButton";
 import Alert from "./../Alert/Alert";
 import { getIsLocked } from "../../routes/appLock";
+import DownloadReports from "./DownloadReports/DownloadReports";
 
 class Reports extends React.Component {
   state = {
@@ -57,9 +58,7 @@ class Reports extends React.Component {
     return (
       <>
         {alert.isDisplay && <Alert type={alert.type} message={alert.message} />}
-        <div>
-          <button>Download</button>
-        </div>
+        <DownloadReports />
         <LockButton
           isCandidatesCanBeLock={isCandidatesCanBeLock}
           isLocked={isLocked}

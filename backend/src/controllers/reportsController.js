@@ -1,10 +1,9 @@
 const { queryHandler } = require("../candidateRepository");
 const { ErrorMessages, Workshops, Decisions } = require("../config");
+const reportFields = "name, lastname, email";
 
-async function getCandidateReports() {
-  const reportFields = "name, lastname, email";
+async function getWorkshopsReports() {
   const workshops = Object.values(Workshops);
-
   try {
     const workshopAccReports = await Promise.all(
       workshops.map(async workshop => {
@@ -17,6 +16,23 @@ async function getCandidateReports() {
       })
     );
 
+    return {
+      data: {
+        workshopAccReports
+      },
+      httpStatus: 200
+    };
+  } catch (err) {
+    return {
+      data: data,
+      message: ErrorMessages.SQL_WRONG_CONNECTION,
+      httpStatus: 400
+    };
+  }
+}
+
+async function getLectureReports() {
+  try {
     const lectureAccReport = await queryHandler(
       `SELECT ${reportFields} FROM candidates WHERE decision = $1;`,
       [Decisions.ACC_LEC]
@@ -25,6 +41,25 @@ async function getCandidateReports() {
       `SELECT ${reportFields} FROM candidates WHERE decision = $1;`,
       [Decisions.MV_LEC]
     );
+
+    return {
+      data: {
+        lectureAccReport,
+        lectureMvReport
+      },
+      httpStatus: 200
+    };
+  } catch (err) {
+    return {
+      data: data,
+      message: ErrorMessages.SQL_WRONG_CONNECTION,
+      httpStatus: 400
+    };
+  }
+}
+
+async function getRejectedReport() {
+  try {
     const rejectedReport = await queryHandler(
       `SELECT ${reportFields} FROM candidates WHERE decision = $1;`,
       [Decisions.REJ]
@@ -32,9 +67,6 @@ async function getCandidateReports() {
 
     return {
       data: {
-        workshopAccReports,
-        lectureAccReport,
-        lectureMvReport,
         rejectedReport
       },
       httpStatus: 200
@@ -48,4 +80,4 @@ async function getCandidateReports() {
   }
 }
 
-module.exports = { getCandidateReports };
+module.exports = { getWorkshopsReports, getLectureReports, getRejectedReport };
